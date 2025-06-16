@@ -4,5 +4,8 @@
   "description": "Visualizador Interactivo del TSP",
   "scripts": {
     "test": "echo 'No tests specified'"
+  },
+  "dependencies": {
+    "held-karp": "^1.0.11"
   }
 }
