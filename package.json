@@ -1,0 +1,8 @@
+{
+  "name": "interactive-tsp",
+  "version": "1.0.0",
+  "description": "Visualizador Interactivo del TSP",
+  "scripts": {
+    "test": "echo 'No tests specified'"
+  }
+}
