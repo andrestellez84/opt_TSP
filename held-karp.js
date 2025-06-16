@@ -6,7 +6,11 @@
   and likewise for `prev`. This was a significant performance enhancement!
 */
 
+<<<<<<< cljz9i-codex/usar-biblioteca-de-optimización-global
+const getCycle = d => {
+=======
 export const getCycle = d => {
+>>>>>>> main
   const n = d.length
 
   if (n === 1) {
@@ -116,7 +120,11 @@ export const getCycle = d => {
   return { l, cycle }
 }
 
+<<<<<<< cljz9i-codex/usar-biblioteca-de-optimización-global
+const getPath = d => {
+=======
 export const getPath = d => {
+>>>>>>> main
   /*
     The solution to TSP is a Hamiltonian cycle. If all we want is
     a Hamiltonian path, we can add a "universal vertex" city which is
@@ -134,7 +142,17 @@ export const getPath = d => {
 
   // Eliminate new city 0 from the start and end of the cycle
   // and bump the rest back down
+<<<<<<< cljz9i-codex/usar-biblioteca-de-optimización-global
+const path = cycle.slice(1, cycle.length - 1).map(u => u - 1)
+
+  return { l, path }
+}
+
+window.getCycle = getCycle
+window.getPath = getPath
+=======
   const path = cycle.slice(1, cycle.length - 1).map(u => u - 1)
 
   return { l, path }
 }
+>>>>>>> main

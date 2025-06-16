@@ -1,6 +1,6 @@
 # Visualizador Interactivo del TSP
 
-Este proyecto permite dibujar ciudades en un plano y calcular una ruta aproximada que las conecte a todas utilizando el algoritmo del vecino más cercano.
+Este proyecto permite dibujar ciudades en un plano y calcular la ruta óptima que las conecte a todas utilizando el algoritmo Held–Karp.
 
 ## Uso
 

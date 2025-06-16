@@ -57,7 +57,11 @@ function solveTSPOptimal(points) {
     const matrix = Array.from({ length: n }, (_, i) =>
         Array.from({ length: n }, (_, j) => distance(points[i], points[j]))
     );
+<<<<<<< cljz9i-codex/usar-biblioteca-de-optimización-global
+    const { cycle } = window.getCycle(matrix);
+=======
     const { cycle } = getCycle(matrix);
+>>>>>>> main
     return cycle.slice(0, cycle.length - 1).map(i => points[i]);
 }
 
