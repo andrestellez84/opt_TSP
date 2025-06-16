@@ -1,3 +1,5 @@
+import { getCycle } from './held-karp.js';
+
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const message = document.getElementById('message');
@@ -50,25 +52,15 @@ function distance(a, b) {
     return Math.sqrt(dx * dx + dy * dy);
 }
 
-function solveTSPNearestNeighbor(points) {
-    if (points.length === 0) return [];
-    const unvisited = points.slice();
-    const route = [unvisited.shift()];
-    while (unvisited.length > 0) {
-        const last = route[route.length - 1];
-        let bestIndex = 0;
-        let bestDist = distance(last, unvisited[0]);
-        for (let i = 1; i < unvisited.length; i++) {
-            const d = distance(last, unvisited[i]);
-            if (d < bestDist) {
-                bestDist = d;
-                bestIndex = i;
-            }
-        }
-        route.push(unvisited.splice(bestIndex, 1)[0]);
-    }
-    return route;
+function solveTSPOptimal(points) {
+    const n = points.length;
+    const matrix = Array.from({ length: n }, (_, i) =>
+        Array.from({ length: n }, (_, j) => distance(points[i], points[j]))
+    );
+    const { cycle } = getCycle(matrix);
+    return cycle.slice(0, cycle.length - 1).map(i => points[i]);
 }
+
 
 function drawRoute(route) {
     ctx.beginPath();
@@ -109,7 +101,7 @@ document.getElementById('solve-tsp').addEventListener('click', () => {
     }
     mode = 'idle';
     redraw();
-    const route = solveTSPNearestNeighbor(cities);
+    const route = solveTSPOptimal(cities);
     drawRoute(route);
     const dist = calculateTotalDistance(route).toFixed(2);
     message.textContent = `Distancia total: ${dist}`;
